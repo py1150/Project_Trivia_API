@@ -72,9 +72,12 @@ This README is missing documentation of your endpoints. Below is an example for 
 
 Endpoints
 GET '/categories'
-GET ...
-POST ...
-DELETE ...
+GET '/questions'
+DELETE '/questions/<q_id>'
+POST '/questions'
+POST '/questions/search'
+GET '/categories/<id>/questions'
+POST '/quizzes'
 
 GET '/categories'
 - Fetches a dictionary of categories in which the keys are the ids and the value is the corresponding string of the category
@@ -86,6 +89,51 @@ GET '/categories'
 '4' : "History",
 '5' : "Entertainment",
 '6' : "Sports"}
+
+
+GET '/questions'
+- Fetches a dictionary of questions in which the keys are the information category and the value is the corresponding string with the content
+- Request Arguments: None
+- Returns: An object of information category: content key:value pairs. 
+{'id' : "Science",
+'question' : "Art",
+'answer' : "Geography",
+'category' : "History",
+'difficulty' : "Entertainment"}
+
+
+DELETE '/questions/<q_id>'
+- Deletes the data of a specific quesition 
+- Request Arguments: <q_id> id of the question 
+- Returns: Does not return any data
+
+
+POST '/questions'
+- Inserts a new question by providing a dictionary. The structure
+follows the description above (see GET 'questions')
+- Request Arguments: None
+- Returns: the inserted dictionary
+
+
+POST '/questions/search'
+- Fetches a specific question by filtering for a search term for the 
+'question' value of the dictionary structure (see GET 'questions')
+- Request Arguments: search term (string)
+- Returns: the dictionary according to the structure above (see GET 'questions')
+
+
+GET '/categories/<id_cat>/questions'
+- Fetches a specific question dictionaries by filtering for the 
+'category' value of the dictionary structure (see GET 'questions')
+- Request Arguments: category id <id_cat>
+- Returns: the question dictionaries according to the structure above (see GET 'questions'), the number of total questions and the current category
+
+
+POST '/quizzes'
+- Creates an endpoint to play the quiz. Takes input of a category and the previous question and returns a random question in 
+given category according to the structure described above (see GET 'questions').
+- Request Arguments: category, previous question parameters
+- Returns: a dictionary according to the structure above (see GET 'questions')
 
 ```
 
