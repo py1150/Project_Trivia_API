@@ -17,7 +17,8 @@ class FormView extends Component {
 
   componentDidMount(){
     $.ajax({
-      url: `/categories`, //TODO: update request URL
+      //url: `/categories`, //TODO: update request URL
+      url: "/categories",
       type: "GET",
       success: (result) => {
         this.setState({ categories: result.categories })
@@ -92,6 +93,7 @@ class FormView extends Component {
               {Object.keys(this.state.categories).map(id => {
                   return (
                     <option key={id} value={id}>{this.state.categories[id]}</option>
+                    //<option key={id} value={id}>{this.state.categories[id-1]}</option>
                   )
                 })}
             </select>

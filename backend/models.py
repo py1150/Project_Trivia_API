@@ -29,7 +29,7 @@ class Question(db.Model):
   id = Column(Integer, primary_key=True)
   question = Column(String)
   answer = Column(String)
-  category = Column(String)
+  category = Column(String)#
   difficulty = Column(Integer)
 
   def __init__(self, question, answer, category, difficulty):
@@ -41,10 +41,11 @@ class Question(db.Model):
   def insert(self):
     db.session.add(self)
     db.session.commit()
+    print('Question added')
   
   def update(self):
     db.session.commit()
-
+    
   def delete(self):
     db.session.delete(self)
     db.session.commit()
